@@ -287,125 +287,111 @@ function Clientes() {
   
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {action === 1 ? "Agregar cliente" : "Modificar cliente"}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form>
-            <div className="row g-3">
-              <div className="col-md-6">
-                <label for="nombre" className="form-label">
-                  Nombre:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nombre"
-                  defaultValue={action === 1 ? "" : nombre}
-                  value={nombre}
-                  required
-                  //onChange={(event) => setNombre(event.target.value)}
-                  onChange={handleInputChange}
-                  readonly
-                  minLength={3}
-                />
-              </div>
-              <div className="col-md-6">
-                <label for="cedula" className="form-label">
-                  Cédula:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cedula"
-                  defaultValue={action === 1 ? "" : cedula}
-                  value={cedula}
-                  //onChange={(event) => setCedula(event.target.value)}
-                  onChange={validarCedula}
-                  required
-                  minLength={7}
-                />
-              </div>
-              <div className="col-md-6">
-                <label for="telefono" className="form-label">
-                  Teléfono:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefono"
-                  defaultValue={action === 1 ? "" : telefono}
-                  value={telefono}
-                  //onChange={(event) => setTelefono(event.target.value)}
-                  onChange={validarTelefono}
-                  required
-                />
-              </div>
-              <div className="col-md-12">
-                <label for="direccion" className="form-label">
-                  Dirección:
-                </label>
-                <textarea
-                  className="form-control"
-                  id="direccion"
-                  defaultValue={action === 1 ? "" : direccion}
-                  value={direccion}
-                  //onChange={(event) => setDireccion(event.target.value)}
-                  onChange={ValidarDireccion}
-                  required
-                ></textarea>
-              </div>
-            </div>
-            {/* <!--<button type="submit" className="btn btn-primary mt-3">Agregar</button>--> */}
-            {action === 1 ? (
-              <button
-                id="agregar"
-                type="button"
-                onClick={() =>
-                  agregarCliente(
-                    "https://sysprop-production.up.railway.app/clientes",
-                    nombre,
-                    cedula,
-                    telefono,
-                    direccion
-                  )
-                }
-                className="btn btn-primary"
-              >
-                Agregar
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-success"
-                onClick={() => {
-                  editarCliente(
-                    clienteEdit,
-                    nombre,
-                    cedula,
-                    telefono,
-                    direccion
-                  );
-                }}
-              >
-                Guardar cambios
-              </button>
-            )}
-          </form>
-          <button
-            id="cerrar"
-            type="button"
-            className="btn btn-secondary"
-            data-bs-dismiss="modal"
-            onClick={handleClose}
-          >
-            Cerrar
-          </button>
-        </Modal.Body>
-      </Modal>
-    </div>
+  <Modal.Header closeButton>
+    <Modal.Title>
+      {action === 1 ? "Agregar cliente" : "Modificar cliente"}
+    </Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <form className="mobile-form">
+      <div className="form-group">
+        <label htmlFor="nombre" className="form-label">
+          Nombre:
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="nombre"
+          defaultValue={action === 1 ? "" : nombre}
+          value={nombre}
+          required
+          onChange={handleInputChange}
+          minLength={3}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="cedula" className="form-label">
+          Cédula:
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="cedula"
+          defaultValue={action === 1 ? "" : cedula}
+          value={cedula}
+          onChange={validarCedula}
+          required
+          minLength={7}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="telefono" className="form-label">
+          Teléfono:
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="telefono"
+          defaultValue={action === 1 ? "" : telefono}
+          value={telefono}
+          onChange={validarTelefono}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="direccion" className="form-label">
+          Dirección:
+        </label>
+        <textarea
+          className="form-control"
+          id="direccion"
+          defaultValue={action === 1 ? "" : direccion}
+          value={direccion}
+          onChange={ValidarDireccion}
+          required
+        ></textarea>
+      </div>
+      {action === 1 ? (
+        <button
+          id="agregar"
+          type="button"
+          onClick={() =>
+            agregarCliente(
+              "https://sysprop-production.up.railway.app/clientes",
+              nombre,
+              cedula,
+              telefono,
+              direccion
+            )
+          }
+          className="btn btn-primary btn-sm"
+        >
+          Agregar
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-success btn-sm"
+          onClick={() => {
+            editarCliente(clienteEdit, nombre, cedula, telefono, direccion);
+          }}
+        >
+          Guardar cambios
+        </button>
+      )}
+      <button
+        id="cerrar"
+        type="button"
+        className="btn btn-secondary btn-sm"
+        data-bs-dismiss="modal"
+        onClick={handleClose}
+      >
+        Cerrar
+      </button>
+    </form>
+  </Modal.Body>
+</Modal>
+</div>
   );
 }
 
