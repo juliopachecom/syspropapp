@@ -246,7 +246,6 @@ function Usuarios() {
       <Sidebar />
       <div>
         {/* <!--CUERPO--> */}
-        <div id="cuerpo">
           <div className="row p-4">
             <h3>Buscar Usuario</h3>
             <div className="col-12 col-6">
@@ -522,7 +521,7 @@ function Usuarios() {
             </button>
           </Modal.Body>
         </Modal>
-      </div>
+    
     </>
   );
 }
