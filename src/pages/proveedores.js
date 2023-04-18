@@ -261,7 +261,7 @@ function Dashboard() {
     <div>
       <Sidebar />
       {/* <!--CUERPO--> */}
-      <div id="cuerpo">
+      <div id="container">
         <div className="p-4">
           <h3>Buscar Proveedor</h3>
           <div className="d-flex justify-content-between align-items-center flex-wrap">
@@ -329,6 +329,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+
   
 
       <Modal show={show} onHide={handleClose}>
