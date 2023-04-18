@@ -291,44 +291,44 @@ function Compras() {
           <Row>
             
               <Col xs={12} md={6}>
-  <Card className="cliente-card">
-    <CardHeader style={{ backgroundColor: "#4e73df", color: "white" }}>
-      Proveedor
-    </CardHeader>
-    <CardBody>
-      <Row className="mt-2">
-        <Col>
-          <Button color="success" onClick={agregarClick}>
-            Agregar proveedor
-          </Button>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} sm={6}>
-          <FormGroup>
-            <Label>Nombre</Label>
-            <Select
-              filterOption={(option, searchText) =>
-                option.label.toLowerCase().includes(searchText.toLowerCase())
-              }
-              options={clientes.map((cliente) => ({
-                value: cliente.rif,
-                label: cliente.nombre,
-              }))}
-              placeholder="Seleccione un proveedor"
-              onChange={handleSelectChange} // Agregamos el manejador de eventos
-            />
-          </FormGroup>
-        </Col>
-        <Col xs={12} sm={6}>
-          <FormGroup>
-            <Label>RIF</Label>
-            <Input bsSize="sm" id="rif" disabled="true" />
-          </FormGroup>
-        </Col>
-      </Row>
-    </CardBody>
-  </Card>
+              <Card className="cliente-card">
+  <CardHeader style={{ backgroundColor: "#4e73df", color: "white" }}>
+    Proveedor
+  </CardHeader>
+  <CardBody>
+    <Row className="mt-2">
+      <Col>
+        <Button color="success" onClick={agregarClick}>
+          Agregar proveedor
+        </Button>
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={12} sm={6}>
+        <FormGroup>
+          <Label>Nombre</Label>
+          <Select
+            filterOption={(option, searchText) =>
+              option.label.toLowerCase().includes(searchText.toLowerCase())
+            }
+            options={clientes.map((cliente) => ({
+              value: cliente.rif,
+              label: cliente.nombre,
+            }))}
+            placeholder="Seleccione un proveedor"
+            onChange={handleSelectChange} // Agregamos el manejador de eventos
+          />
+        </FormGroup>
+      </Col>
+      <Col xs={12} sm={6}>
+        <FormGroup>
+          <Label>RIF</Label>
+          <Input bsSize="sm" id="rif" disabled="true" />
+        </FormGroup>
+      </Col>
+    </Row>
+  </CardBody>
+</Card>
   
               
               <Row>
