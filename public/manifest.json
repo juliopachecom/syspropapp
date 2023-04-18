@@ -1,0 +1,38 @@
+{
+  "background_color":"#ffffff",
+  "categories": ["productivity","navigation","travel"],
+  "description":"The best ice creams",
+  "dir":"ltr",
+  "display_override":["standalone","fullscreen"],
+  "display":"standalone",
+  "icons":[
+    {
+      "src":"sysprop-192.png",
+      "sizes":"192x192",
+      "type":"image/png"
+    },
+    {
+      "src":"sysprop-384.png",
+      "sizes":"384x384",
+      "type":"image/png"
+    },
+    {
+      "src":"sysprop-512.png",
+      "sizes":"512x512",
+      "type":"image/png"
+    },
+    {
+      "src":"sysprop-1024.png",
+      "sizes":"1024x1024",
+      "type":"image/png"
+    }
+  ],
+  "lang":"es",
+  "name":"Sysprop Gelato",
+  "orientation":"portrait",
+  "prefer_related_applications":false,
+  "scope":"/",
+  "short_name":"Sysprop",
+  "start_url":"/",
+  "theme_color":"#ffffff"
+}

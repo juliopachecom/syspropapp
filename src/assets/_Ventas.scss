@@ -1,0 +1,23 @@
+.sticky-top {
+    position: sticky;
+    top: 15px;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.detalle-venta {
+    min-width: min-content;
+
+    .columna-numerica {
+        text-align: end;
+    }
+}
+
+.productos-card {
+    width: fit-content;
+}
+
+.cliente-card {
+    width: 650px;
+}
+
