@@ -258,11 +258,11 @@ function Dashboard() {
 
   /******************************************/
   return (
-    <div>
-      <Sidebar />
+<div className="container">
+        <Sidebar />
       {/* <!--CUERPO--> */}
       <div id="container">
-        <div className="p-4">
+        <div className="row p-4">
           <h3>Buscar Proveedor</h3>
           <div className="d-flex justify-content-between align-items-center flex-wrap">
             <div className="mb-3">
@@ -274,7 +274,7 @@ function Dashboard() {
                 placeholder="Buscar Proveedor..."
               />
             </div>
-            <div className="d-flex justify-content-center mb-3">
+            <div className="col-md-3 d-none d-md-block">
               <button
                 type="button"
                 className="btn btn-primary"
@@ -289,6 +289,7 @@ function Dashboard() {
   
           <div className="m-4">
             <h3 className="mb-3">Proveedores Registrados</h3>
+            <div className="table-responsive">
             <table id="tabla-proveedores" className="table">
               <thead>
                 <tr>
@@ -326,6 +327,7 @@ function Dashboard() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>
@@ -340,8 +342,8 @@ function Dashboard() {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <div className="row g-3">
-              <div className="col-md-6">
+            <div className="mobile-form">
+              <div className="form-group">
                 <label for="nombre" className="form-label">
                   Nombre:
                 </label>
@@ -356,7 +358,7 @@ function Dashboard() {
                   minLength={3}
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="cedula" className="form-label">
                   RIF:
                 </label>
@@ -372,7 +374,7 @@ function Dashboard() {
                   //minLength={8}
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="telefono" className="form-label">
                   Teléfono:
                 </label>
@@ -386,7 +388,7 @@ function Dashboard() {
                   required
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="correo" className="form-label">
                   Correo:
                 </label>
