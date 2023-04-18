@@ -83,7 +83,7 @@ function Plantillacompra() {
         <div>
 
             {/* <!--CUERPO--> */}
-            <div id="cuerpo">
+            
                 <div className="row p-4">
                     <div className="imagenbonitaparaformulario">
                         <img src={image} alt="user-login" /* style={{ maxWidth: '100px', }} */ />
@@ -125,7 +125,7 @@ function Plantillacompra() {
                     </table>
                 </div>
 
-            </div>
+            
             <button onClick={generatePDF} className="btn btn-success" id="botonplantilla">Descargar PDF</button>
         </div>
     );
