@@ -289,8 +289,7 @@ function Compras() {
             </div>
           </div>
           <Row>
-            <Col sm={8}>
-              <Row className="mb-2 mt-5">
+            
               <Col xs={12} md={6}>
   <Card className="cliente-card">
     <CardHeader style={{ backgroundColor: "#4e73df", color: "white" }}>
@@ -330,8 +329,8 @@ function Compras() {
       </Row>
     </CardBody>
   </Card>
-  </Col>
-              </Row>
+  
+              
               <Row>
                 <Col sm={12}>
                   <Card className="productos-card">
