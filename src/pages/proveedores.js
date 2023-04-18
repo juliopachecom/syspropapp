@@ -262,73 +262,74 @@ function Dashboard() {
       <Sidebar />
       {/* <!--CUERPO--> */}
       <div id="cuerpo">
-        <div className="row p-4">
+        <div className="p-4">
           <h3>Buscar Proveedor</h3>
-          <div className="col-6">
-            <input
-              type="text"
-              className="form-control"
-              value={searchQuery}
-              onChange={handleSearch}
-              placeholder="Buscar Proveedor..."
-            />
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Buscar Proveedor..."
+              />
+            </div>
+            <div className="d-flex justify-content-center mb-3">
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#mi-modal"
+                onClick={agregarClick}
+              >
+                Agregar Proveedor
+              </button>
+            </div>
           </div>
-          <div className="col-3"></div>
-          {/* <!-- Botón para abrir la ventana pop-up --> */}
-          <button
-            type="button"
-            className="btn btn-primary col-2"
-            data-bs-toggle="modal"
-            data-bs-target="#mi-modal"
-            onClick={agregarClick}
-          >
-            Agregar Proveedor
-          </button>
-        </div>
-
-        <div className="row m-4">
-          <h3 className="mb-3">Proveedores Registrados</h3>
-          <table id="tabla-proveedores" className="table">
-            <thead>
-              <tr>
-                {camposDataClientes.map(({ column }) => (
-                  <th>{column}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsuarios.map((itemProveedor, id) => (
-                <tr key={id}>
-                  <td
-                    className={
-                      itemProveedor.estado_activo ? "activo" : "desactivo"
-                    }
-                  >
-                    {itemProveedor.id}
-                  </td>
-                  <td>{itemProveedor.nombre}</td>
-                  <td>{itemProveedor.rif}</td>
-                  <td>{itemProveedor.telefono}</td>
-                  <td>{itemProveedor.direccion}</td>
-                  <td>{itemProveedor.correo}</td>
-
-                  <td>
-                    <button
-                      className="btn btn-warning"
-                      onClick={function editClick() {
-                        editarClick(id);
-                      }}
-                      id="btnEditar"
-                    >
-                      Editar
-                    </button>
-                  </td>
+  
+          <div className="m-4">
+            <h3 className="mb-3">Proveedores Registrados</h3>
+            <table id="tabla-proveedores" className="table">
+              <thead>
+                <tr>
+                  {camposDataClientes.map(({ column }) => (
+                    <th key={column}>{column}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredUsuarios.map((itemProveedor, id) => (
+                  <tr key={id}>
+                    <td
+                      className={
+                        itemProveedor.estado_activo ? "activo" : "desactivo"
+                      }
+                    >
+                      {itemProveedor.id}
+                    </td>
+                    <td>{itemProveedor.nombre}</td>
+                    <td>{itemProveedor.rif}</td>
+                    <td>{itemProveedor.telefono}</td>
+                    <td>{itemProveedor.direccion}</td>
+                    <td>{itemProveedor.correo}</td>
+  
+                    <td>
+                      <button
+                        className="btn btn-warning"
+                        onClick={() => editarClick(id)}
+                        id="btnEditar"
+                      >
+                        Editar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+  
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
