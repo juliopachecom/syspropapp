@@ -92,11 +92,10 @@ function Reportescompras() {
 
 
   return (
-    <div>
+    <div className="container">
       <Sidebar />
 
       {/* <!--CUERPO--> */}
-      <div id="cuerpo">
         <div className="row p-4">
           <h3>Buscar Compra</h3>
           <div className="col-6">
@@ -152,8 +151,7 @@ function Reportescompras() {
           </table>
 
 
-        </div>
-      </div>
+
 
      
 
@@ -211,6 +209,7 @@ function Reportescompras() {
         </ModalFooter>
       </Modal>
 
+    </div>
     </div>
   );
 }
