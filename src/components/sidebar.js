@@ -12,7 +12,6 @@ import {
 	NavbarBrand,
 	Nav,
 	NavItem,
-	NavLink,
   } from 'reactstrap';
 
 const cookies = new Cookies()
