@@ -273,7 +273,7 @@ function Usuarios() {
 
           <div className="row m-4">
             <h3 className="mb-3">Usuarios</h3>
-            <div className="tabla-responsive">
+            <div className="table-responsive">
             <table id="tabla-clientes" className="table">
               <thead>
                 <tr>
