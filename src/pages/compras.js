@@ -619,7 +619,7 @@ function Compras() {
         <Modal.Body>
           <form>
             <div className="row g-3">
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="nombre" className="form-label">
                   Nombre:
                 </label>
@@ -634,7 +634,7 @@ function Compras() {
                   minLength={3}
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="cedula" className="form-label">
                   RIF:
                 </label>
@@ -648,7 +648,7 @@ function Compras() {
                   required
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="telefono" className="form-label">
                   Teléfono:
                 </label>
@@ -662,7 +662,7 @@ function Compras() {
                   required
                 />
               </div>
-              <div className="col-md-6">
+              <div className="form-group">
                 <label for="correo" className="form-label">
                   Correo:
                 </label>

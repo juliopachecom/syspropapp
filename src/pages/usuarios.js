@@ -242,6 +242,7 @@ function Usuarios() {
 
   return (
     <>
+    <div className="container">
       <Sidebar />
       <div>
         {/* <!--CUERPO--> */}
@@ -338,7 +339,9 @@ function Usuarios() {
             </table>
           </div>
         </div>
+        </div>
 
+        
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -348,7 +351,7 @@ function Usuarios() {
           <Modal.Body>
             <form>
               <div className="row g-3">
-                <div className="col-md-6">
+                <div className="form-group">
                   <label for="nombre" className="form-label">
                     Nombre:
                   </label>
@@ -364,7 +367,7 @@ function Usuarios() {
                     minLength={3}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="form-group">
                   <label for="cedula" className="form-label">
                     Cédula:
                   </label>
@@ -379,7 +382,7 @@ function Usuarios() {
                     minLength={8}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="form-group">
                   <label for="correo" className="form-label">
                     Correo:
                   </label>
