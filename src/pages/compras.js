@@ -316,7 +316,14 @@ function Compras() {
               label: cliente.nombre,
             }))}
             placeholder="Seleccione un proveedor"
-            onChange={handleSelectChange} // Agregamos el manejador de eventos
+            onChange={handleSelectChange}
+            styles={{
+              container: (provided) => ({
+                ...provided,
+                width: "100%",
+                maxWidth: "100%",
+              }),
+            }}
           />
         </FormGroup>
       </Col>
