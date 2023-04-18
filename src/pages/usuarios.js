@@ -244,11 +244,11 @@ function Usuarios() {
     <>
     <div className="container">
       <Sidebar />
-      <div>
+      
         {/* <!--CUERPO--> */}
           <div className="row p-4">
             <h3>Buscar Usuario</h3>
-            <div className="col-12 col-6">
+            <div className="col-12 col-md-6">
               <input
                 type="text"
                 className="form-control form-control-sm"
@@ -257,11 +257,11 @@ function Usuarios() {
                 placeholder="Buscar Usuario..."
               />
             </div>
-            <div className="col-3"></div>
+            <div className="col-md-3 d-none d-md-block"></div>
             {/* <!-- Botón para abrir la ventana pop-up --> */}
             <button
               type="button"
-              className="btn btn-primary col-2"
+              className="btn btn-primary btn-sm col-12 col-md-2 mt-3 mt-md-0"
               data-bs-toggle="modal"
               data-bs-target="#mi-modal"
               onClick={agregarClick}
@@ -339,7 +339,6 @@ function Usuarios() {
             </table>
             </div>
           </div>
-        </div>
         </div>
 
         
