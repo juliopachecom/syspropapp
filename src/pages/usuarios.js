@@ -249,10 +249,10 @@ function Usuarios() {
         <div id="cuerpo">
           <div className="row p-4">
             <h3>Buscar Usuario</h3>
-            <div className="col-6">
+            <div className="col-12 col-6">
               <input
                 type="text"
-                className="form-control"
+                className="form-control form-control-sm"
                 value={searchQuery}
                 onChange={handleSearch}
                 placeholder="Buscar Usuario..."
@@ -273,6 +273,7 @@ function Usuarios() {
 
           <div className="row m-4">
             <h3 className="mb-3">Usuarios</h3>
+            <div className="tabla-responsive">
             <table id="tabla-clientes" className="table">
               <thead>
                 <tr>
@@ -337,6 +338,7 @@ function Usuarios() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
         </div>
