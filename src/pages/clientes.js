@@ -213,78 +213,86 @@ function Clientes() {
   /******************************************/
 
   return (
-    <div>
-      <Sidebar />
-
-      {/* <!--CUERPO--> */}
-      <div id="cuerpo">
-        <div className="row p-4">
-          <h3>Buscar Cliente</h3>
-          <div className="col-6">
-            <input
-              type="text"
-              className="form-control"
-              value={searchQuery}
-              onChange={handleSearch}
-              placeholder="Buscar Cliente..."
-            />
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-3">
+          <Sidebar />
+        </div>
+        <div className="col-md-9">
+          {/* <!--CUERPO--> */}
+          <div id="cuerpo">
+            <div className="row p-4">
+              <div className="col-md-6">
+                <h3>Buscar Cliente</h3>
+              </div>
+              <div className="col-md-6">
+                {/* Search input */}
+                <input
+                  type="text"
+                  className="form-control"
+                  value={searchQuery}
+                  onChange={handleSearch}
+                  placeholder="Buscar Cliente..."
+                />
+              </div>
+              <div className="col-md-2"></div>
+              <div className="col-md-3">
+                {/* Button to open pop-up */}
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#mi-modal"
+                  onClick={agregarClick}
+                >
+                  Agregar Cliente
+                </button>
+              </div>
+            </div>
+  
+            <div className="row m-4">
+              <div className="col-md-12">
+                <h3 className="mb-3">Clientes Registrados</h3>
+                <table id="tabla-clientes" className="table">
+                  <thead>
+                    <tr>
+                      {camposDataClientes.map(({ column }) => (
+                        <th key={column}>{column}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredUsuarios
+                      .filter((itemCliente) => itemCliente.estado_activo)
+                      .map((itemCliente, id) => (
+                        <tr key={id}>
+                          <td
+                            className={
+                              itemCliente.estado_activo ? "activo" : "desactivo"
+                            }
+                          >
+                            {itemCliente.id}
+                          </td>
+                          <td>{itemCliente.nombre}</td>
+                          <td>{itemCliente.cedula}</td>
+                          <td>{itemCliente.telefono}</td>
+                          <td>{itemCliente.direccion}</td>
+                          <td>
+                            <button
+                              className="btn btn-warning"
+                              onClick={() => editarClick(id)}
+                              id="btnEditar"
+                            >
+                              Editar
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div className="col-3"></div>
-          {/* <!-- Botón para abrir la ventana pop-up --> */}
-          <button
-            type="button"
-            className="btn btn-primary col-2"
-            data-bs-toggle="modal"
-            data-bs-target="#mi-modal"
-            onClick={agregarClick}
-          >
-            Agregar Cliente
-          </button>
-        </div>
-
-        <div className="row m-4">
-          <h3 className="mb-3">Clientes Registrados</h3>
-          <table id="tabla-clientes" className="table">
-            <thead>
-              <tr>
-                {camposDataClientes.map(({ column }) => (
-                  <th>{column}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsuarios
-                .filter((itemCliente) => itemCliente.estado_activo)
-                .map((itemCliente, id) => (
-                  <tr key={id}>
-                    <td
-                      className={
-                        itemCliente.estado_activo ? "activo" : "desactivo"
-                      }
-                    >
-                      {itemCliente.id}
-                    </td>
-                    <td>{itemCliente.nombre}</td>
-                    <td>{itemCliente.cedula}</td>
-                    <td>{itemCliente.telefono}</td>
-                    <td>{itemCliente.direccion}</td>
-                    <td>
-                      <button
-                        className="btn btn-warning"
-                        onClick={function editClick() {
-                          editarClick(id);
-                        }}
-                        id="btnEditar"
-                      >
-                        Editar
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -405,6 +413,8 @@ function Clientes() {
           </button>
         </Modal.Body>
       </Modal>
+    </div>
+    </div>
     </div>
   );
 }
