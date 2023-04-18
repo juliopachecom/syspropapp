@@ -144,3 +144,42 @@ h1 {
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 767px) {
+
+  /* Estilos para dispositivos móviles */
+
+  .container {
+      max-width: 100%;
+  }
+
+  h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
+
+  #cuerpo {
+      margin-left: 20px;
+  }
+
+  .cuerpoDashboard {
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+
+  #cuadroMantenimiento {
+      flex-direction: column;
+  }
+
+  #cuadroMantenimiento Button {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 20px;
+  }
+
+  .buttone {
+      flex-direction: column;
+      margin: 10px;
+  }
+
+}
