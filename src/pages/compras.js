@@ -278,6 +278,7 @@ function Compras() {
 
   return (
     <>
+    <div className="container">
       <Sidebar />
       <div>
         <div id="cuerpo">
@@ -712,6 +713,7 @@ function Compras() {
           </button>
         </Modal.Body>
       </Modal>
+      </div>
       </div>
     </>
   );
