@@ -215,7 +215,7 @@ function Clientes() {
   return (
     <div className="container">
       <Sidebar />
-  
+
       {/* <!--CUERPO--> */}
       <div className="row p-4">
         <h3>Buscar Cliente</h3>
@@ -228,7 +228,7 @@ function Clientes() {
             placeholder="Buscar Cliente..."
           />
         </div>
-        <div className="col-12 col-md-3"></div>
+        <div className="col-md-3 d-none d-md-block"></div>
         {/* <!-- Botón para abrir la ventana pop-up --> */}
         <button
           type="button"
@@ -240,49 +240,52 @@ function Clientes() {
           Agregar Cliente
         </button>
       </div>
-  
+
       <div className="row m-4">
         <h3 className="mb-3">Clientes Registrados</h3>
-        <table id="tabla-clientes" className="table">
-          <thead>
-            <tr>
-              {camposDataClientes.map(({ column }) => (
-                <th key={column}>{column}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsuarios
-              .filter((itemCliente) => itemCliente.estado_activo)
-              .map((itemCliente, id) => (
-                <tr key={id}>
-                  <td
-                    className={
-                      itemCliente.estado_activo ? "activo" : "desactivo"
-                    }
-                  >
-                    {itemCliente.id}
-                  </td>
-                  <td>{itemCliente.nombre}</td>
-                  <td>{itemCliente.cedula}</td>
-                  <td>{itemCliente.telefono}</td>
-                  <td>{itemCliente.direccion}</td>
-                  <td>
-                    <button
-                      className="btn btn-warning btn-sm"
-                      onClick={function editClick() {
-                        editarClick(id);
-                      }}
-                      id="btnEditar"
+        <div className="table-responsive">
+          <table id="tabla-clientes" className="table">
+            <thead>
+              <tr>
+                {camposDataClientes.map(({ column }) => (
+                  <th key={column}>{column}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsuarios
+                .filter((itemCliente) => itemCliente.estado_activo)
+                .map((itemCliente, id) => (
+                  <tr key={id}>
+                    <td
+                      className={
+                        itemCliente.estado_activo ? "activo" : "desactivo"
+                      }
                     >
-                      Editar
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+                      {itemCliente.id}
+                    </td>
+                    <td>{itemCliente.nombre}</td>
+                    <td>{itemCliente.cedula}</td>
+                    <td>{itemCliente.telefono}</td>
+                    <td>{itemCliente.direccion}</td>
+                    <td>
+                      <button
+                        className="btn btn-warning btn-sm"
+                        onClick={function editClick() {
+                          editarClick(id);
+                        }}
+                        id="btnEditar"
+                      >
+                        Editar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
+    
     
   
 
