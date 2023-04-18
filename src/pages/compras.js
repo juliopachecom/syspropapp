@@ -290,50 +290,46 @@ function Compras() {
           <Row>
             <Col sm={8}>
               <Row className="mb-2 mt-5">
-                <Col sm={12}>
-                  <Card className="cliente-card">
-                    <CardHeader
-                      style={{ backgroundColor: "#4e73df", color: "white" }}
-                    >
-                      Proveedor
-                    </CardHeader>
-                    <CardBody>
-                      <Row className="mt-2">
-                        <Col>
-                          <Button color="success" onClick={agregarClick}>
-                            Agregar proveedor
-                          </Button>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col sm={6}>
-                          <FormGroup>
-                            <Label>Nombre</Label>
-                            <Select
-                              filterOption={(option, searchText) =>
-                                option.label
-                                  .toLowerCase()
-                                  .includes(searchText.toLowerCase())
-                              }
-                              options={clientes.map((cliente) => ({
-                                value: cliente.rif,
-                                label: cliente.nombre,
-                              }))}
-                              placeholder="Seleccione un proveedor"
-                              onChange={handleSelectChange} // Agregamos el manejador de eventos
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col sm={6}>
-                          <FormGroup>
-                            <Label>RIF</Label>
-                            <Input bsSize="sm" id="rif" disabled="true" />
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
+              <Col xs={12} md={6}>
+  <Card className="cliente-card">
+    <CardHeader style={{ backgroundColor: "#4e73df", color: "white" }}>
+      Proveedor
+    </CardHeader>
+    <CardBody>
+      <Row className="mt-2">
+        <Col>
+          <Button color="success" onClick={agregarClick}>
+            Agregar proveedor
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12} sm={6}>
+          <FormGroup>
+            <Label>Nombre</Label>
+            <Select
+              filterOption={(option, searchText) =>
+                option.label.toLowerCase().includes(searchText.toLowerCase())
+              }
+              options={clientes.map((cliente) => ({
+                value: cliente.rif,
+                label: cliente.nombre,
+              }))}
+              placeholder="Seleccione un proveedor"
+              onChange={handleSelectChange} // Agregamos el manejador de eventos
+            />
+          </FormGroup>
+        </Col>
+        <Col xs={12} sm={6}>
+          <FormGroup>
+            <Label>RIF</Label>
+            <Input bsSize="sm" id="rif" disabled="true" />
+          </FormGroup>
+        </Col>
+      </Row>
+    </CardBody>
+  </Card>
+  </Col>
               </Row>
               <Row>
                 <Col sm={12}>
@@ -521,78 +517,91 @@ function Compras() {
         </div>
 
         <Modal
-          className="Modal-SeleccionarCliente"
-          show={confirmarVenta}
-          onHide={handleConfirmClose}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Confirmación de Compra</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="d-flex flex-column">
-              <span>{`Cliente: ${actualCliente.nombre}`}</span>
-              <span>{`Cédula: ${actualCliente.rif}`}</span>
-            </div>
-            <Card className="detalle-venta">
-              <CardHeader
-                style={{ backgroundColor: "#4e73df", color: "white" }}
-              >
-                Detalles
-              </CardHeader>
-              <CardBody>
-                <Row>
-                  <Col sm={12}>
-                    <Table size="sm">
-                      <tbody>
-                        <tr>
-                          <td className="fw-semibold">Artí­culo</td>
-                          <td className="fw-semibold">Cantidad</td>
-                          <td className="fw-semibold">Precio</td>
-                        </tr>
-                        {detalleProductos.map((producto) => (
-                          <tr key={producto.id}>
-                            <td>{producto.nombre}</td>
-                            <td>{producto.cantidad || 1}</td>
-                            <td>{producto.precio}</td>
-                          </tr>
-                        ))}
-                        <tr>
-                          <td className="fw-semibold">Total:</td>
-                          <td></td>
-                          <td className="fw-semibold">{total}</td>
-                        </tr>
-                      </tbody>
-                    </Table>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-            <button
-              id="registrarVenta"
-              type="button"
-              className="btn btn-primary"
-              data-bs-dismiss="modal"
-              onClick={
-                () => agregarVenta(usuarioActual, actualCliente.id, articulosSeleccionados, articulosCantidades)
-              }
+  className="Modal-SeleccionarCliente"
+  show={confirmarVenta}
+  onHide={handleConfirmClose}
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Confirmación de Compra</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col">
+          <div className="d-flex flex-column">
+            <span>{`Cliente: ${actualCliente.nombre}`}</span>
+            <span>{`Cédula: ${actualCliente.rif}`}</span>
+          </div>
+          <Card className="detalle-venta">
+            <CardHeader
+              style={{ backgroundColor: "#4e73df", color: "white" }}
             >
-              Registrar venta
-            </button>
-            <button
-              id="cerrar"
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-              onClick={function cancelarVenta() {
-                articulosSeleccionados = []
-                articulosCantidades = []
-                handleConfirmClose()
-              }}
-            >
-              Cancelar
-            </button>
-          </Modal.Body>
-        </Modal>
+              Detalles
+            </CardHeader>
+            <CardBody>
+              <div className="table-responsive" style={{ maxWidth: "100%" }}>
+                <Table size="sm">
+                  <tbody>
+                    <tr>
+                      <td className="fw-semibold">Artí­culo</td>
+                      <td className="fw-semibold">Cantidad</td>
+                      <td className="fw-semibold">Precio</td>
+                    </tr>
+                    {detalleProductos.map((producto) => (
+                      <tr key={producto.id}>
+                        <td>{producto.nombre}</td>
+                        <td>{producto.cantidad || 1}</td>
+                        <td>{producto.precio}</td>
+                      </tr>
+                    ))}
+                    <tr>
+                      <td className="fw-semibold">Total:</td>
+                      <td></td>
+                      <td className="fw-semibold">{total}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col">
+          <button
+            id="registrarVenta"
+            type="button"
+            className="btn btn-primary btn-sm me-2"
+            data-bs-dismiss="modal"
+            onClick={() =>
+              agregarVenta(
+                usuarioActual,
+                actualCliente.id,
+                articulosSeleccionados,
+                articulosCantidades
+              )
+            }
+          >
+            Registrar venta
+          </button>
+          <button
+            id="cerrar"
+            type="button"
+            className="btn btn-secondary btn-sm"
+            data-bs-dismiss="modal"
+            onClick={() => {
+              articulosSeleccionados = [];
+              articulosCantidades = [];
+              handleConfirmClose();
+            }}
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </Modal.Body>
+</Modal>
 
         <Modal className="modalAgregarUsuario" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
