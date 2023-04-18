@@ -281,7 +281,7 @@ function Compras() {
     <div className="container">
       <Sidebar />
       <div>
-        <div id="cuerpo">
+        <div>
           <div className="m-4 row">
             <h3>Registrar compra</h3>
             <div className="col-6">
